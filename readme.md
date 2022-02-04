@@ -1,6 +1,6 @@
 # docker-event-stream
 
-A simple, lightweight [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) for [Docker Events](https://docs.docker.com/engine/reference/commandline/events/).
+A simple, lightweight, zero-dependency [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) for [Docker Events](https://docs.docker.com/engine/reference/commandline/events/).
 
 ## installation
 
