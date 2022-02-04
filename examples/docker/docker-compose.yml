@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  docker-event-stream:
+    container_name: docker-event-stream
+    build: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./package.json:/usr/app/package.json
+      - ./src:/usr/app/src
