@@ -1,0 +1,23 @@
+{
+  "name": "@rjchicago/docker-event-stream",
+  "version": "0.1.0",
+  "description": "Node.js EventEmitter for Docker Events",
+  "main": "DockerEventStream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjchicago/docker-event-stream.git"
+  },
+  "keywords": [
+    "DOCKER",
+    "EVENTS"
+  ],
+  "author": "rjchicago",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rjchicago/docker-event-stream/issues"
+  },
+  "homepage": "https://github.com/rjchicago/docker-event-stream#readme"
+}
