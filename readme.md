@@ -61,6 +61,14 @@ When running Node.js inside of Docker, you need map the docker socket under volu
 
 > See [docker](./examples/docker) under [examples](./examples)
 
+## publish
+
+Increment the package version and commit with the follow message format:
+
+> `Release ${VERSION}`
+
+The Github Actions Workflow is automated using [publish-to-npm](https://github.com/marketplace/actions/publish-to-npm)
+
 ## contribution
 
 Please do! Open a pull request with your code or idea and let's chat!
