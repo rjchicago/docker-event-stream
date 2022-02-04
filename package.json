@@ -1,6 +1,6 @@
 {
   "name": "@rjchicago/docker-event-stream",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node.js EventEmitter for Docker Events",
   "main": "DockerEventStream.js",
   "scripts": {
