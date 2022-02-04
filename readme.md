@@ -31,7 +31,7 @@ In another shell, test an event:
 docker run --rm -it alpine:3.15 sh
 ```
 
-In the application shell, you will the stream of docker events...
+In the application shell, you will see the stream of docker events...
 
 ``` js
 {
@@ -58,6 +58,8 @@ When running Node.js inside of Docker, you need map the docker socket under volu
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
+
+> See [docker](./examples/docker) under [examples](./examples)
 
 ## contribution
 
