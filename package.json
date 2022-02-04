@@ -1,6 +1,6 @@
 {
   "name": "@rjchicago/docker-event-stream",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Node.js EventEmitter for Docker Events",
   "main": "DockerEventStream.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rjchicago/docker-event-stream.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "DOCKER",
