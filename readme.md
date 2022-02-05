@@ -126,7 +126,7 @@ When running Node.js inside of Docker, you need map the docker socket under volu
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-` See [docker](./examples/docker) under [examples](./examples)
+> See [docker](./examples/docker) under [examples](./examples)
 
 ## publish
 
