@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  docker-event-stream:
+    container_name: docker-event-stream
+    build: 
+      context: .
+      dockerfile: ./debug/Dockerfile
+    command: npm run debug
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./debug/package.json:/usr/app/package.json
+      - ./debug/index.js:/usr/app/index.js
+      - ./DockerEventStream.js:/usr/app/DockerEventStream.js
+    ports:
+      - "9229:9229"
