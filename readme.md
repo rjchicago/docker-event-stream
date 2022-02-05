@@ -8,6 +8,25 @@ A simple, lightweight, zero-dependency [EventEmitter](https://nodejs.org/api/eve
 npm install @rjchicago/docker-event-stream --save
 ```
 
+## init
+
+Call `DockerEventStream.init()` to initialize. By default, `DockerEventStream` will emit **all** events for both scopes `local` and `swarm`.
+
+You may pass `options` in the init call to connect a remote host, limit or filter events.
+
+``` js
+const options = {
+  host: $HOST, // hostname or IP
+  port: $PORT, // i.e. 2375
+  since: $SINCE, // i.e. '10s'
+  filter: {
+    $FILTER1_KEY: $FILTER1_VALUE, // i.e. scope: 'local'
+    $FILTER2_KEY: $FILTER2_VALUE, // i.e. type: 'container'
+    $FILTER3_KEY: [ $FILTER3_VALUE1, $FILTER3_VALUE2 ] // i.e. event: [ 'start', 'die' ]
+  }
+}
+```
+
 ## use
 
 Save an example file `index.js`
@@ -50,6 +69,54 @@ In the application shell, you will see the stream of docker events...
 }
 ```
 
+## options
+
+### since
+
+See [Docker Events docs](https://docs.docker.com/engine/reference/commandline/events/#limiting-filtering-and-formatting-the-output)
+
+* `since` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. 10m, 1h30m).
+* if you do not provide the `since` option, only new and/or live events will be emitted.
+
+### filtering
+
+See [Docker Events docs](https://docs.docker.com/engine/reference/commandline/events/#limiting-filtering-and-formatting-the-output)
+
+> The currently supported filters are:
+>  
+> * config (config=`name or id`)
+> * container (container=`name or id`)
+> * daemon (daemon=`name or id`)
+> * event (event=`event action`)
+> * image (image=`repository or tag`)
+> * label (label=`key` or label=`key`=`value`)
+> * network (network=`name or id`)
+> * node (node=`id`)
+> * plugin (plugin=`name or id`)
+> * scope (scope=`local or swarm`)
+> * secret (secret=`name or id`)
+> * service (service=`name or id`)
+> * type (type=`container or image or volume or network or daemon or plugin or service or node or secret or config`)
+> * volume (volume=`name`)
+
+NOTE:
+
+> * using the same filter multiple times will be handled as `OR`.
+> * using multiple filters will be handled as `AND`.
+
+#### example
+
+The following will listen for local events from containers "foo" `OR` "bar" only:
+
+``` js
+const options = {
+  filter: {
+    scope: 'local',
+    container: ['foo', 'bar']
+  }
+}
+```
+
 ## docker-compose
 
 When running Node.js inside of Docker, you need map the docker socket under volumes in your docker-compose.yml:
@@ -59,7 +126,7 @@ When running Node.js inside of Docker, you need map the docker socket under volu
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-> See [docker](./examples/docker) under [examples](./examples)
+` See [docker](./examples/docker) under [examples](./examples)
 
 ## publish
 

@@ -6,6 +6,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@rjchicago/docker-event-stream": "^0.1.0"
+    "@rjchicago/docker-event-stream": "^0.1"
   }
 }
