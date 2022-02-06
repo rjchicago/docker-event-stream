@@ -19,7 +19,7 @@ class DockerEventStream {
         const since = DockerEventStream._since || DockerEventStream.options.since || '0s';
         DockerEventStream._since = Math.floor(new Date().getTime() / 1000);
         return `--since ${since}`;
-    };
+    }
 
     static get host() {
         return (DockerEventStream.options.host && DockerEventStream.options.port)

@@ -4,10 +4,12 @@
   "description": "A simple, lightweight, zero-dependency EventEmitter for Docker Events.",
   "main": "DockerEventStream.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/index.js",
+    "debug": "nodemon --inspect=0.0.0.0:9229 ./src/index.js",
+    "eslint": "eslint '**/*.js' --fix"
   },
   "files": [
-    "DockerEventStream.js"
+    "./src/DockerEventStream.js"
   ],
   "repository": {
     "type": "git",
@@ -25,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/rjchicago/docker-event-stream/issues"
   },
-  "homepage": "https://github.com/rjchicago/docker-event-stream#readme"
+  "homepage": "https://github.com/rjchicago/docker-event-stream#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.7",
+    "nodemon": "^2.0"
+  }
 }
