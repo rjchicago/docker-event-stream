@@ -29,7 +29,9 @@ const options = {
 
 ## use
 
-Save an example file `index.js`
+In this demo, we'll use the default configuration and log all events to console.
+
+Demo `index.js`:
 
 ``` javascript
 const DockerEventStream = require('@rjchicago/docker-event-stream');
@@ -38,16 +40,30 @@ DockerEventStream.init();
 DockerEventStream.on('event', console.log);
 ```
 
-In one shell, run the above app:
+To bring up our demo app, run the following...
 
 ``` sh
+# create demo folder
+mkdir docker-event-stream-demo
+cd docker-event-stream-demo
+
+# init
+npm init -y
+npm install -s @rjchicago/docker-event-stream
+
+# create demo index.js
+echo "const DockerEventStream = require('@rjchicago/docker-event-stream');
+DockerEventStream.init();
+DockerEventStream.on('event', console.log);" > index.js
+
+# run demo
 node index.js
 ```
 
-In another shell, test an event:
+Next, in another shell, test an event:
 
 ``` sh
-docker run --rm -it alpine:3.15 sh
+docker run --rm alpine echo "hello"
 ```
 
 In the application shell, you will see the stream of docker events...
@@ -106,10 +122,11 @@ NOTE:
 
 #### example
 
-The following will listen for local events from containers "foo" `OR` "bar" only:
+The following will listen on "local" events since "30s" ago from containers "foo" `OR` "bar" only:
 
 ``` js
 const options = {
+  since: 30s,
   filter: {
     scope: 'local',
     container: ['foo', 'bar']
